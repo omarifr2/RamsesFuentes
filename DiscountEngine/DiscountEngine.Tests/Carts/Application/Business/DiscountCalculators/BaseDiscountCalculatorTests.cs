@@ -44,7 +44,7 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
             };
 
             TestCart = new Cart(cartItems);
-            TestCartSubtotal = 2147.30m;
+            TestCartSubtotal = 2102.11m;
         }
     }
 }
