@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace DiscountEngine.Carts.Application.Business.DiscountCalculators
 {
-    public class FixedAmountDiscountCalculator : IDiscountCalculator
+    public class FixedAmountDiscountCalculator(decimal amount, decimal minimumSubtotal) : IDiscountCalculator
     {
-        public CartDiscount CalculateDiscount(Cart cart)
+        public CartDiscount? CalculateDiscount(Cart cart)
         {
             throw new NotImplementedException();
         }

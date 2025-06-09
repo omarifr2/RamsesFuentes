@@ -4,6 +4,6 @@ namespace DiscountEngine.Carts.Core.Interfaces.Business
 {
     public interface IDiscountCalculator
     {
-        CartDiscount CalculateDiscount(Cart cart);
+        CartDiscount? CalculateDiscount(Cart cart);
     }
 }

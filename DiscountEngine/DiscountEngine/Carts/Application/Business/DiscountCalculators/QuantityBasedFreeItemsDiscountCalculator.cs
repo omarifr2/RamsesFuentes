@@ -10,7 +10,7 @@ namespace DiscountEngine.Carts.Application.Business.DiscountCalculators
 {
     public class QuantityBasedFreeItemsDiscountCalculator : IDiscountCalculator
     {
-        public CartDiscount CalculateDiscount(Cart cart)
+        public CartDiscount? CalculateDiscount(Cart cart)
         {
             throw new NotImplementedException();
         }

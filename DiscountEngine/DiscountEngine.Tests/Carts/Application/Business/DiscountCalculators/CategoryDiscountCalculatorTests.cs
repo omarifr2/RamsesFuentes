@@ -9,7 +9,7 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
         [TestCase(Category.Baby, 20, "20% off all products in \"Baby\" category", 10.69)]
         [TestCase(Category.Groceries, 15, "15% off all products in \"Groceries\" category", 4.722)]
         [TestCase(Category.Meats, 10, "10% off all products in \"Meats\" category", 6.72)]
-        public void CategoryDiscountCalculatorTests_ShouldApplySingleDiscount(Category category, decimal percentaje, string expectedDescription, decimal expectedAmount)
+        public void CategoryDiscountCalculator_ShouldApplySingleDiscount(Category category, decimal percentaje, string expectedDescription, decimal expectedAmount)
         {
             // Arrange
             var cart = new Cart(TestCart.Items);
