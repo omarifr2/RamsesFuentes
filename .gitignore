@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/DiscountEngine/.vs/DiscountEngine
+/DiscountEngine/DiscountEngine/bin/Debug/net8.0
+/DiscountEngine/DiscountEngine/obj
+/DiscountEngine/DiscountEngine.Tests/bin
+/DiscountEngine/DiscountEngine.Tests/obj
