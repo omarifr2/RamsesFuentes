@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountEngine", "DiscountEngine\DiscountEngine.csproj", "{40F5CD82-6F35-42CE-9FA9-CC27D3DDEAA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountEngine.Tests", "DiscountEngine.Tests\DiscountEngine.Tests.csproj", "{F44FC4B2-BDF5-4539-81EA-B7327DF39E90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40F5CD82-6F35-42CE-9FA9-CC27D3DDEAA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40F5CD82-6F35-42CE-9FA9-CC27D3DDEAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40F5CD82-6F35-42CE-9FA9-CC27D3DDEAA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40F5CD82-6F35-42CE-9FA9-CC27D3DDEAA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F44FC4B2-BDF5-4539-81EA-B7327DF39E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F44FC4B2-BDF5-4539-81EA-B7327DF39E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F44FC4B2-BDF5-4539-81EA-B7327DF39E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F44FC4B2-BDF5-4539-81EA-B7327DF39E90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09628AEC-4BEA-4981-A032-EC4028A44258}
+	EndGlobalSection
+EndGlobal
