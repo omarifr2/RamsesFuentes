@@ -17,8 +17,8 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
             PercentageDiscountCalculator sut = new PercentageDiscountCalculator(percentaje);
 
             // Act
-            CartDiscount discount = sut.CalculateDiscount(cart);
-            cart.Discounts.Add(discount);
+            CartDiscount? discount = sut.CalculateDiscount(cart);
+            if (discount != null) cart.Discounts.Add(discount);
 
             // Assert
             Assert.IsNotNull(discount);

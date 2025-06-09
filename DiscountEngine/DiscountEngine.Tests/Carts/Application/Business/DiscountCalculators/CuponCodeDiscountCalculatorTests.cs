@@ -10,7 +10,7 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
         {
             Cart cart = new Cart(TestCart.Items);
             CuponCodeDiscountCalculator sut = new CuponCodeDiscountCalculator();
-            CartDiscount discount = sut.CalculateDiscount(cart);
+            CartDiscount? discount = sut.CalculateDiscount(cart);
 
             Assert.IsNotNull(discount);
 

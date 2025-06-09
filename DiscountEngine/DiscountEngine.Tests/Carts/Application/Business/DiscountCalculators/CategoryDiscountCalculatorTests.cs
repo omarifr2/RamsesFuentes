@@ -12,12 +12,12 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
         public void CategoryDiscountCalculator_ShouldApplySingleDiscount(Category category, decimal percentaje, string expectedDescription, decimal expectedAmount)
         {
             // Arrange
-            var cart = new Cart(TestCart.Items);
-            var sut = new CategoryDiscountCalculator(category, percentaje);
+            Cart cart = new Cart(TestCart.Items);
+            CategoryDiscountCalculator sut = new CategoryDiscountCalculator(category, percentaje);
 
             // Act
-            var discount = sut.CalculateDiscount(cart);
-            cart.Discounts.Add(discount);
+            CartDiscount? discount = sut.CalculateDiscount(cart);
+            if (discount != null) cart.Discounts.Add(discount);
 
             // Assert
             Assert.IsNotNull(discount);

@@ -1,10 +1,5 @@
 ﻿using DiscountEngine.Carts.Core.Interfaces.Business;
 using DiscountEngine.Carts.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DiscountEngine.Carts.Application.Business.DiscountCalculators
 {
@@ -12,7 +7,11 @@ namespace DiscountEngine.Carts.Application.Business.DiscountCalculators
     {
         public CartDiscount? CalculateDiscount(Cart cart)
         {
-            throw new NotImplementedException();
+            string description = $"${amount} off total cart value";
+            if (minimumSubtotal == 0m) return new CartDiscount(description, cart.Subtotal - amount);
+            if (cart.Subtotal < minimumSubtotal) return null;
+            description = $"{description} if subtotal exceeds ${minimumSubtotal}";
+            return new CartDiscount(description, cart.Subtotal - amount);
         }
     }
 }
