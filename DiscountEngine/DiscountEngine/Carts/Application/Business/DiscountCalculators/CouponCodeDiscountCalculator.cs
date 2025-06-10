@@ -8,11 +8,33 @@ using System.Threading.Tasks;
 
 namespace DiscountEngine.Carts.Application.Business.DiscountCalculators
 {
-    public class CouponCodeDiscountCalculator : IDiscountCalculator
+    public enum CouponCode
     {
-        public CartDiscount? CalculateDiscount(Cart cart)
+        WELCOME10,
+        CYBERMONDAY15,
+    }
+
+    public class CouponCodeDiscountCalculator : DiscountCalculatorDecorator
+    {
+        private static Dictionary<CouponCode, IDiscountCalculator> couponCodeDiscountCalculatorsDictionaty = new Dictionary<CouponCode, IDiscountCalculator>
         {
-            throw new NotImplementedException();
+            { CouponCode.WELCOME10, new PercentageDiscountCalculator(10) },
+            { CouponCode.CYBERMONDAY15, new CategoryDiscountCalculator(Category.Electronics, 15) },
+        };
+
+        private readonly CouponCode couponCode;
+
+        public CouponCodeDiscountCalculator(CouponCode couponCode) : base(couponCodeDiscountCalculatorsDictionaty[couponCode]) 
+        {
+            this.couponCode = couponCode;
+        }
+
+        public override CartDiscount? CalculateDiscount(Cart cart)
+        {
+            CartDiscount? discount = discountCalculator.CalculateDiscount(cart);
+            if (discount is null) return null;
+            discount.Description = $"Coupon code: {couponCode} - {discount.Description}";
+            return discount;
         }
     }
 }
