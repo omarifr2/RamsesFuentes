@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DiscountEngine.Carts.Application.Business.DiscountCalculators
 {
-    public class CuponCodeDiscountCalculator : IDiscountCalculator
+    public class CouponCodeDiscountCalculator : IDiscountCalculator
     {
         public CartDiscount? CalculateDiscount(Cart cart)
         {
