@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Text.Encodings.Web;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace DiscountEngine.Carts.Core.Models;
@@ -18,6 +19,6 @@ public class Cart(List<CartItem> Items)
             discounts = Discounts.Select(discount => new { name = discount.Description, amount = discount.Amount }),
             finalTotal = FinalTotal
         };
-        return JsonSerializer.Serialize(toSerialize, new JsonSerializerOptions { WriteIndented = true });
+        return JsonSerializer.Serialize(toSerialize, new JsonSerializerOptions { WriteIndented = true, Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping });
     }
 }
