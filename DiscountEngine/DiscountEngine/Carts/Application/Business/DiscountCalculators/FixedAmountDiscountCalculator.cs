@@ -8,10 +8,10 @@ namespace DiscountEngine.Carts.Application.Business.DiscountCalculators
         public CartDiscount? CalculateDiscount(Cart cart)
         {
             string description = $"${amount} off total cart value";
-            if (minimumSubtotal == 0m) return new CartDiscount(description, cart.Subtotal - amount);
+            if (minimumSubtotal == 0m) return new CartDiscount(description, amount);
             if (cart.Subtotal < minimumSubtotal) return null;
             description = $"{description} if subtotal exceeds ${minimumSubtotal}";
-            return new CartDiscount(description, cart.Subtotal - amount);
+            return new CartDiscount(description, amount);
         }
     }
 }

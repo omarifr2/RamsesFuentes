@@ -5,9 +5,9 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
 {
     public class FixedAmountDiscountCalculatorTests : BaseDiscountCalculatorTests
     {
-        [TestCase(10, 0, "$10 off total cart value", 2092.11)]
-        [TestCase(10, 200, "$10 off total cart value if subtotal exceeds $200", 2092.11)]
-        public void FixedAmountDiscountCalculatorTests_ShouldApplySingleDiscount(decimal amount, decimal minimumSubtotal, string expectedDescription, decimal expectedAmount)
+        [TestCase(10, 0, "$10 off total cart value", 10, 2092.11)]
+        [TestCase(50, 200, "$10 off total cart value if subtotal exceeds $200", 10, 2052.11)]
+        public void FixedAmountDiscountCalculatorTests_ShouldApplySingleDiscount(decimal amount, decimal minimumSubtotal, string expectedDescription, decimal expectedAmount, decimal expectedFinalTotal)
         {
             // Arrange
             Cart cart = new Cart(TestCart.Items);
@@ -22,7 +22,7 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
             Assert.That(discount.Description, Is.EqualTo(expectedDescription));
             Assert.That(discount.Amount, Is.EqualTo(expectedAmount));
             Assert.That(TestCartSubtotal, Is.EqualTo(cart.Subtotal));
-            Assert.That(cart.Total, Is.EqualTo(TestCartSubtotal - expectedAmount));
+            Assert.That(expectedFinalTotal, Is.EqualTo(cart.FinalTotal));
         }
 
         [TestCase(200, 2500, "$500 off on all products if subtotal exceeds $2500", 2102.11)]
@@ -38,7 +38,7 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
             // Assert
             Assert.IsNull(discount);
             Assert.That(TestCartSubtotal, Is.EqualTo(cart.Subtotal));
-            Assert.That(TestCartSubtotal, Is.EqualTo(cart.Total));
+            Assert.That(TestCartSubtotal, Is.EqualTo(cart.FinalTotal));
         }
     }
 }

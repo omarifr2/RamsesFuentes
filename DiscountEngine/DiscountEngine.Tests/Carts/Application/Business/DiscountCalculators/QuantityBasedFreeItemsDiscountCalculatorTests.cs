@@ -23,7 +23,7 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
             Assert.That(discount.Description, Is.EqualTo(expectedDescription));
             Assert.That(discount.Amount, Is.EqualTo(expectedAmount));
             Assert.That(TestCartSubtotal, Is.EqualTo(cart.Subtotal));
-            Assert.That(cart.Total, Is.EqualTo(TestCartSubtotal - expectedAmount));
+            Assert.That(cart.FinalTotal, Is.EqualTo(TestCartSubtotal - expectedAmount));
         }
 
         [TestCase("Whole Milk", 3, 2, "Buy 3 get 2 free on \"Whole Milk\", only 1 items discounted", 1.79)]
@@ -44,7 +44,7 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
             Assert.That(discount.Description, Is.EqualTo(expectedDescription));
             Assert.That(discount.Amount, Is.EqualTo(expectedAmount));
             Assert.That(TestCartSubtotal, Is.EqualTo(cart.Subtotal));
-            Assert.That(cart.Total, Is.EqualTo(TestCartSubtotal - expectedAmount));
+            Assert.That(cart.FinalTotal, Is.EqualTo(TestCartSubtotal - expectedAmount));
         }
 
         [TestCase("Smartphone", 1, 1, "Buy 1 get 1 free on \"Smartphone\", no item to discount", 0)]
@@ -65,7 +65,7 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
             Assert.That(discount.Description, Is.EqualTo(expectedDescription));
             Assert.That(discount.Amount, Is.EqualTo(expectedAmount));
             Assert.That(TestCartSubtotal, Is.EqualTo(cart.Subtotal));
-            Assert.That(cart.Total, Is.EqualTo(TestCartSubtotal - expectedAmount));
+            Assert.That(cart.FinalTotal, Is.EqualTo(TestCartSubtotal - expectedAmount));
         }
 
         [TestCase("Ground Beef", 8, 1, "", 0)]
@@ -82,7 +82,7 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
             // Assert
             Assert.IsNull(discount);
             Assert.That(TestCartSubtotal, Is.EqualTo(cart.Subtotal));
-            Assert.That(TestCartSubtotal, Is.EqualTo(cart.Total));
+            Assert.That(TestCartSubtotal, Is.EqualTo(cart.FinalTotal));
         }
     }
 }

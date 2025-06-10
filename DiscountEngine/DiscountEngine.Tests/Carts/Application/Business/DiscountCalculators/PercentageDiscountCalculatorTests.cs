@@ -25,7 +25,7 @@ namespace DiscountEngine.Tests.Carts.Application.Business.DiscountCalculators
             Assert.That(discount.Description, Is.EqualTo(expectedDescription));
             Assert.That(discount.Amount, Is.EqualTo(expectedAmount));
             Assert.That(TestCartSubtotal, Is.EqualTo(cart.Subtotal));
-            Assert.That(cart.Total, Is.EqualTo(TestCartSubtotal - expectedAmount));
+            Assert.That(cart.FinalTotal, Is.EqualTo(TestCartSubtotal - expectedAmount));
         }
     }
 }
